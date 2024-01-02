@@ -1,5 +1,6 @@
 import {NewsManager} from './utils/NewsManager'
 import {AxiosResponse} from 'axios'
+import {QueryString} from './types/global.types'
 
 class RSSNewsToJSON {
   private baseURL: string
@@ -10,7 +11,7 @@ class RSSNewsToJSON {
     this.NewsManagerInstance = new NewsManager(this.baseURL)
   }
 
-  news(): {listNews: (search?: string) => AxiosResponse<string>} {
+  news(): {listNews: (params?: QueryString) => AxiosResponse<string>} {
     return this.NewsManagerInstance
   }
 }

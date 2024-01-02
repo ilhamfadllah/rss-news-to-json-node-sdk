@@ -1,6 +1,7 @@
 import createRESTManager from './RESTManager'
 import Parser from 'rss-parser'
 import {AxiosResponse} from 'axios'
+import {QueryString} from '../types/global.types'
 
 export class NewsManager {
   private baseURL: string
@@ -34,13 +35,11 @@ export class NewsManager {
     }
   }
 
-  public async listNews(search?: string) {
+  public async listNews(params?: QueryString) {
     return await this.callAPI({
       url: this.baseURL,
       method: 'GET',
-      params: {
-        search,
-      },
+      params,
     })
   }
 }
